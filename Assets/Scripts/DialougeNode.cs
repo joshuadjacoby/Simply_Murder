@@ -5,9 +5,11 @@ using System.Collections.Generic;
 
 public class DialougeNode : MonoBehaviour {
     //[HideInInspector]
-    public Text textbox;
+    private Text textbox;
+    private Text NamePlate;
     //private textobject;
     public List<string> dialogueList = new List<string>();
+    public List<string> namePlates = new List<string>();
     //public GameObject leftSprite, rightSprite;
     public GameObject nextGameObject;
     private int iterator = 0;
@@ -18,6 +20,8 @@ public class DialougeNode : MonoBehaviour {
     {
         textbox = GameObject.Find("Words").GetComponent<Text>();
         textbox.text = dialogueList[iterator];
+        NamePlate = GameObject.Find("Character name").GetComponent<Text>();
+        NamePlate.text = namePlates[iterator];
     }
 	
 	// Update is called once per frame
@@ -25,15 +29,16 @@ public class DialougeNode : MonoBehaviour {
     {
 	
 	}
-    void NextText(string text)
+    void NextText(string text, string name)
     {
         textbox.text = text;
+        NamePlate.text = name;
     }
     void OnMouseDown()
     {
         Debug.Log(iterator + "count" + dialogueList.Count);
         
-        if (iterator == dialogueList.Count)
+        if ((iterator + 1) == dialogueList.Count)
         {
            // Destroy(leftSprite);
             //Destroy(rightSprite);
@@ -42,8 +47,8 @@ public class DialougeNode : MonoBehaviour {
         }
         else
         {
-            NextText(dialogueList[iterator++]);
-            Debug.Log(iterator);
+            iterator++;
+            NextText(dialogueList[iterator], namePlates[iterator]);
         }
         
     }
