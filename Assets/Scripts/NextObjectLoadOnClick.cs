@@ -2,10 +2,11 @@
 using System.Collections;
 
 public class NextObjectLoadOnClick : MonoBehaviour {
-    public GameObject nextGameObject;
+    public GameObject nextGameObject, location;
     //Use this for initialization
     public GameObject toDestory;
     void Start () {
+        location = GameObject.Find("location");
 	
 	}
 	
@@ -14,9 +15,8 @@ public class NextObjectLoadOnClick : MonoBehaviour {
 	
 	}
     void OnMouseDown()
-    {        
-        Instantiate(nextGameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
+    {
+        Instantiate(nextGameObject, location.transform.position, location.transform.rotation);
         Destroy(toDestory);
-
     }
 }
