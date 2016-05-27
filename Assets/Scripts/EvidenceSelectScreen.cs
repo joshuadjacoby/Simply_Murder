@@ -20,7 +20,9 @@ public class EvidenceSelectScreen : MonoBehaviour {
         particles.SetActive(false);
         if (gameManagerControls.currentEvidenceCount == 3)
         {
+           
             Instantiate(nextGameObject, location.transform.position, location.transform.rotation);
+            Destroy(this.gameObject); 
         }
         if (gameManagerControls.blood == true)
         {
