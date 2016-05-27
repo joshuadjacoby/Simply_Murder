@@ -17,9 +17,13 @@ using System.Collections;
 
         public void showEvidence() {
         SceneManager.LoadScene((EventSystem.current.currentSelectedGameObject).name);
-    }
+        }
 
         public void returnToEvidence() {
             SceneManager.LoadScene("Evidence");
         }
-    }
+
+        public void goToOverview() {
+        SceneManager.LoadScene("Overview");
+        }
+}
