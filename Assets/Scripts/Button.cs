@@ -24,6 +24,10 @@ using System.Collections;
         }
 
         public void goToOverview() {
-        SceneManager.LoadScene("Overview");
+            SceneManager.LoadScene("Overview");
+        }
+
+        public void goToCourtroom() {
+            SceneManager.LoadScene("Courtroom");
         }
 }
